@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<title>Match — The Supremacy Slugfest</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div id="gate-overlay" class="gate-overlay">
+  <div class="gate-box">
+    <div class="gate-title">🏌️ SUPREMACY SLUGFEST</div>
+    <div class="gate-sub">Enter the trip password to continue</div>
+    <input type="password" id="gate-input" placeholder="Password" autocomplete="off" />
+    <button id="gate-submit" class="btn btn-gold btn-block">Enter</button>
+    <div id="gate-error" class="gate-error" style="display:none;">Incorrect password — try again.</div>
+  </div>
+</div>
+<script src="gate.js"></script>
+
+<div class="topbar">
+  <div class="brand">🏌️ SUPREMACY SLUGFEST</div>
+  <nav>
+    <a href="index.html">Live</a>
+    <a href="admin.html">Admin</a>
+  </nav>
+</div>
+
+<div class="wrap" id="match-root">
+  <div class="empty-state" style="margin-top:40px;">Loading match…</div>
+</div>
+
+<script type="module" src="matchpage.js"></script>
+</body>
+</html>

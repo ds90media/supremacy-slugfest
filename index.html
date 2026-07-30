@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<title>The Supremacy Slugfest — Live Leaderboard</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div id="gate-overlay" class="gate-overlay">
+  <div class="gate-box">
+    <div class="gate-title">🏌️ SUPREMACY SLUGFEST</div>
+    <div class="gate-sub">Enter the trip password to continue</div>
+    <input type="password" id="gate-input" placeholder="Password" autocomplete="off" />
+    <button id="gate-submit" class="btn btn-gold btn-block">Enter</button>
+    <div id="gate-error" class="gate-error" style="display:none;">Incorrect password — try again.</div>
+  </div>
+</div>
+<script src="gate.js"></script>
+
+<div class="topbar">
+  <div class="brand">🏌️ SUPREMACY SLUGFEST</div>
+  <nav>
+    <a href="index.html" class="active">Live</a>
+    <a href="admin.html">Admin</a>
+  </nav>
+</div>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="eyebrow">The Supremacy Slugfest</div>
+    <h1>Live Leaderboard</h1>
+    <div class="matchup">
+      <span class="t1">Strokes &amp; Slams</span>
+      <span class="vs">VS</span>
+      <span class="t2">The Brown Bowl</span>
+    </div>
+    <div class="roundline" id="roundline">Loading round…</div>
+  </div>
+
+  <div class="gauge-card">
+    <div class="gauge-scores">
+      <div class="side t1">
+        <div class="num mono" id="score-t1">0.0</div>
+        <div class="label">Strokes &amp; Slams</div>
+      </div>
+      <div class="side right t2">
+        <div class="num mono" id="score-t2">0.0</div>
+        <div class="label">The Brown Bowl</div>
+      </div>
+    </div>
+    <div class="gauge-track">
+      <div class="gauge-fill-1" id="fill-1" style="width:0%"></div>
+      <div class="gauge-fill-2" id="fill-2" style="width:0%"></div>
+      <div class="gauge-marker" id="win-marker"></div>
+      <div class="gauge-marker-label" id="win-marker-label">18.5 TO WIN</div>
+    </div>
+    <div class="gauge-foot">
+      <span>0</span>
+      <span id="leader-text">Race to 18.5</span>
+      <span>36</span>
+    </div>
+  </div>
+
+  <div class="status-strip" id="status-strip"></div>
+
+  <div id="winner-banner-slot"></div>
+
+  <div class="section-head">
+    <h2><span class="live-dot"></span>Live Matches</h2>
+  </div>
+  <div id="live-matches"><div class="empty-state">No matches in progress right now.</div></div>
+
+  <div class="section-head">
+    <h2>Completed</h2>
+  </div>
+  <div id="completed-matches"><div class="empty-state">No completed matches yet.</div></div>
+
+  <footer class="foot">Supremacy Slugfest I · 2026 · Golden Eagle Golf Club, Pitt Meadows BC</footer>
+</div>
+
+<script type="module" src="dashboard.js"></script>
+</body>
+</html>

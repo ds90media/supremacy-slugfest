@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<title>Admin — The Supremacy Slugfest</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div id="gate-overlay" class="gate-overlay">
+  <div class="gate-box">
+    <div class="gate-title">🏌️ SUPREMACY SLUGFEST</div>
+    <div class="gate-sub">Enter the trip password to continue</div>
+    <input type="password" id="gate-input" placeholder="Password" autocomplete="off" />
+    <button id="gate-submit" class="btn btn-gold btn-block">Enter</button>
+    <div id="gate-error" class="gate-error" style="display:none;">Incorrect password — try again.</div>
+  </div>
+</div>
+<script src="gate.js"></script>
+
+<div class="topbar">
+  <div class="brand">🏌️ SUPREMACY SLUGFEST</div>
+  <nav>
+    <a href="index.html">Live</a>
+    <a href="admin.html" class="active">Admin</a>
+  </nav>
+</div>
+
+<div class="wrap">
+  <div class="hero" style="padding-top:22px;">
+    <div class="eyebrow">Tournament Control</div>
+    <h1 style="font-size: clamp(26px, 7vw, 36px);">Admin</h1>
+  </div>
+
+  <div class="tabs">
+    <div class="tab active" data-tab="roster">Roster</div>
+    <div class="tab" data-tab="create">Create Match</div>
+    <div class="tab" data-tab="manage">Matches</div>
+    <div class="tab" data-tab="round">Rounds</div>
+  </div>
+
+  <div id="tab-roster" class="tab-panel"></div>
+  <div id="tab-create" class="tab-panel" style="display:none;"></div>
+  <div id="tab-manage" class="tab-panel" style="display:none;"></div>
+  <div id="tab-round" class="tab-panel" style="display:none;"></div>
+
+  <footer class="foot">Admin link — keep this URL within the trip group.</footer>
+</div>
+
+<script type="module" src="adminpage.js"></script>
+</body>
+</html>
