@@ -144,6 +144,27 @@ export function analyzeMatch(holes, team1Name, team2Name) {
   };
 }
 
+/** Human-readable status for the overall 18-hole scramble stroke total. */
+export function overallLabel(overall, team1Name, team2Name) {
+  if (overall.holesPlayed === 0) return "Not Started";
+  if (!overall.complete) return "In Progress";
+  if (overall.team1 === overall.team2) return "Halved";
+  const winner = overall.team1 < overall.team2 ? team1Name : team2Name;
+  const diff = Math.abs(overall.team1 - overall.team2);
+  return `${winner} won by ${diff} stroke${diff === 1 ? "" : "s"}`;
+}
+
+/** Format a points number without a trailing ".0" (1, 0.5, 0). */
+export function fmtPts(n) {
+  return Number.isInteger(n) ? String(n) : n.toFixed(1);
+}
+
+/** "1-0" / "0.5-0.5" / "Pending" for a points object from segmentPoints/overallPoints. */
+export function pointsLabel(points) {
+  if (points.pending) return "Pending";
+  return `${fmtPts(points.team1)}-${fmtPts(points.team2)}`;
+}
+
 /** Given a list of match docs, sum team points across all of them. */
 export function tournamentTotals(matches) {
   let team1 = 0;
