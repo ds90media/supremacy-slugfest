@@ -29,44 +29,46 @@
 
 <div class="wrap">
 
-  <div class="hero">
-    <div class="eyebrow">The Supremacy Slugfest</div>
-    <h1>Live Leaderboard</h1>
-    <div class="matchup">
-      <span class="t1">Strokes &amp; Slams</span>
-      <span class="vs">VS</span>
-      <span class="t2">The Brown Bowl</span>
-    </div>
-    <div class="roundline" id="roundline">Loading round…</div>
-  </div>
-
-  <div class="gauge-card">
-    <div class="gauge-scores">
-      <div class="side t1">
-        <div class="num mono" id="score-t1">0.0</div>
-        <div class="label">Strokes &amp; Slams</div>
+  <div class="wrap-narrow">
+    <div class="hero">
+      <div class="eyebrow">The Supremacy Slugfest</div>
+      <h1>Live Leaderboard</h1>
+      <div class="matchup">
+        <span class="t1">Strokes &amp; Slams</span>
+        <span class="vs">VS</span>
+        <span class="t2">The Brown Bowl</span>
       </div>
-      <div class="side right t2">
-        <div class="num mono" id="score-t2">0.0</div>
-        <div class="label">The Brown Bowl</div>
+      <div class="roundline" id="roundline">Loading round…</div>
+    </div>
+
+    <div class="gauge-card">
+      <div class="gauge-scores">
+        <div class="side t1">
+          <div class="num mono" id="score-t1">0.0</div>
+          <div class="label">Strokes &amp; Slams</div>
+        </div>
+        <div class="side right t2">
+          <div class="num mono" id="score-t2">0.0</div>
+          <div class="label">The Brown Bowl</div>
+        </div>
+      </div>
+      <div class="gauge-track">
+        <div class="gauge-fill-1" id="fill-1" style="width:0%"></div>
+        <div class="gauge-fill-2" id="fill-2" style="width:0%"></div>
+        <div class="gauge-marker" id="win-marker"></div>
+        <div class="gauge-marker-label" id="win-marker-label">18.5 TO WIN</div>
+      </div>
+      <div class="gauge-foot">
+        <span>0</span>
+        <span id="leader-text">Race to 18.5</span>
+        <span>36</span>
       </div>
     </div>
-    <div class="gauge-track">
-      <div class="gauge-fill-1" id="fill-1" style="width:0%"></div>
-      <div class="gauge-fill-2" id="fill-2" style="width:0%"></div>
-      <div class="gauge-marker" id="win-marker"></div>
-      <div class="gauge-marker-label" id="win-marker-label">18.5 TO WIN</div>
-    </div>
-    <div class="gauge-foot">
-      <span>0</span>
-      <span id="leader-text">Race to 18.5</span>
-      <span>36</span>
-    </div>
+
+    <div class="status-strip" id="status-strip"></div>
+
+    <div id="winner-banner-slot"></div>
   </div>
-
-  <div class="status-strip" id="status-strip"></div>
-
-  <div id="winner-banner-slot"></div>
 
   <div class="section-head">
     <h2><span class="live-dot"></span>Live Matches</h2>
@@ -78,7 +80,9 @@
   </div>
   <div id="completed-matches"><div class="empty-state">No completed matches yet.</div></div>
 
-  <footer class="foot">Supremacy Slugfest I · 2026 · Golden Eagle Golf Club, Pitt Meadows BC</footer>
+  <div class="wrap-narrow">
+    <footer class="foot">Supremacy Slugfest I · 2026 · Golden Eagle Golf Club, Pitt Meadows BC</footer>
+  </div>
 </div>
 
 <script type="module" src="dashboard.js"></script>
