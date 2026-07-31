@@ -1,5 +1,5 @@
 import { watchMatches, watchTournamentState } from "./firebase.js";
-import { analyzeMatch } from "./scoring.js";
+import { analyzeMatch, overallLabel, pointsLabel, fmtPts } from "./scoring.js";
 import { COURSES } from "./courses.js";
 
 const TEAM1 = "Strokes & Slams";
@@ -88,11 +88,22 @@ function render() {
     : `<div class="empty-state">No completed matches yet.</div>`;
 }
 
-function statusClassFor(a) {
-  if (a.liveLabel.includes(TEAM1)) return "t1";
-  if (a.liveLabel.includes(TEAM2)) return "t2";
-  if (a.liveLabel === "All Square" || a.liveLabel === "Halved" || a.liveLabel === "Dormie") return "tie";
+function classForStatusText(text) {
+  if (text.includes(TEAM1)) return "t1";
+  if (text.includes(TEAM2)) return "t2";
+  if (text === "All Square" || text === "Halved" || text === "Dormie") return "tie";
   return "";
+}
+
+function componentRow(label, segment, statusText) {
+  const cls = classForStatusText(statusText);
+  return `
+    <div class="component-row">
+      <span class="comp-label">${label}</span>
+      <span class="comp-status ${cls}">${statusText}</span>
+      <span class="comp-pts">${pointsLabel(segment.points)}</span>
+    </div>
+  `;
 }
 
 function matchCard(x, idx, completedCard = false) {
@@ -101,11 +112,6 @@ function matchCard(x, idx, completedCard = false) {
   const p1 = (m.team1?.players || []).join(" / ");
   const p2 = (m.team2?.players || []).join(" / ");
   const holeBadge = a.matchComplete ? "Final" : `Hole ${a.currentHole}`;
-  const statusText = a.matchComplete
-    ? a.liveLabel === "Halved"
-      ? "Match Halved"
-      : a.liveLabel
-    : a.liveLabel;
 
   return `
     <a class="match-card ${completedCard ? "completed" : ""}" href="match.html?id=${m.id}">
@@ -118,9 +124,14 @@ function matchCard(x, idx, completedCard = false) {
         <span class="vs">vs</span>
         <span class="side t2">${p2}</span>
       </div>
-      <div class="status-line">
-        <span class="status-text ${statusClassFor(a)}">${statusText}</span>
-        <span class="pts">${a.totalPoints.team1.toFixed(1)} – ${a.totalPoints.team2.toFixed(1)}</span>
+      <div class="match-components">
+        ${componentRow("Front 9 Match", a.front9, a.front9.label)}
+        ${componentRow("Back 9 Match", a.back9, a.back9.label)}
+        ${componentRow("18 Hole Score", a.overall, overallLabel(a.overall, TEAM1, TEAM2))}
+      </div>
+      <div class="status-line match-points-line">
+        <span class="status-text">Match Points</span>
+        <span class="pts total-pts">${fmtPts(a.totalPoints.team1)} – ${fmtPts(a.totalPoints.team2)}</span>
       </div>
     </a>
   `;
