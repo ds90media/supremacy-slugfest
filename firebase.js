@@ -108,6 +108,3 @@ export function watchTournamentState(callback) {
 
 export async function setTournamentState(partialState) {
   return setDoc(stateRef, partialState, { merge: true });
-}
-
-export { doc, getDoc };
