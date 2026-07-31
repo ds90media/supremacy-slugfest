@@ -21,12 +21,13 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID",
+  apiKey: "AIzaSyAn_zV5xAQty6DAv3Y3GjSRwORmOMfKf1c",
+  authDomain: "supremacy-slugfest.firebaseapp.com",
+  projectId: "supremacy-slugfest",
+  storageBucket: "supremacy-slugfest.firebasestorage.app",
+  messagingSenderId: "683093013218",
+  appId: "1:683093013218:web:63bfc6c53b5e1d8a7e24bb",
+  measurementId: "G-0VP9E3RESC"
 };
 
 const app = initializeApp(firebaseConfig);
