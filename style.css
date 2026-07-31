@@ -361,6 +361,68 @@ a { color: inherit; text-decoration: none; }
 .status-line .status-text.tie { color: var(--tie); }
 .status-line .pts { color: var(--text-faint); font-family: 'Roboto Mono', monospace; }
 
+/* Three scoring components (Front 9 / Back 9 / 18 Hole Score) inside a match card */
+.match-components {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--line);
+  display: flex;
+  flex-direction: column;
+}
+.component-row {
+  display: grid;
+  grid-template-columns: 78px 1fr auto;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+  font-size: 11.5px;
+  line-height: 1.25;
+}
+.component-row .comp-label {
+  font-size: 9.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.component-row .comp-status {
+  color: var(--text);
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.component-row .comp-status.t1 { color: var(--team1-bright); }
+.component-row .comp-status.t2 { color: var(--team2-bright); }
+.component-row .comp-status.tie { color: var(--tie); }
+.component-row .comp-pts {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 10.5px;
+  color: var(--gold-bright);
+  white-space: nowrap;
+  text-align: right;
+  min-width: 44px;
+}
+
+.match-points-line .total-pts {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* Desktop: widen the page and let match cards flow into a grid so
+   six live matches are visible without heavy scrolling. */
+@media (min-width: 860px) {
+  .wrap { max-width: 1180px; }
+  .wrap-narrow { max-width: 720px; margin: 0 auto; }
+  #live-matches,
+  #completed-matches {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+    gap: 12px;
+  }
+  .match-card { margin-bottom: 0; }
+}
+
 .match-card.completed { opacity: 0.72; }
 .match-card.completed .row-top .hole-badge { background: rgba(255,255,255,0.06); color: var(--text-dim); border-color: var(--line); }
 
